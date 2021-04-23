@@ -1,0 +1,23 @@
+body{
+    background-color: #d1c7b2;
+}
+
+header{
+    background-image: url('https://www.inscamidemar.cat/wp-content/uploads/2015/09/star2.png');
+}
+
+#descriptionHome{
+    background-color: #ffff;
+}
+
+#menuPagos{
+    background: linear-gradient(to bottom, #005c78, #97c5c4);
+}
+
+#footerHome{
+    background-color: #f1fbfe;
+}
+
+.hoverSubmenu{
+    background: linear-gradient(to bottom, #01779b, #95d1d0);
+}

@@ -1,0 +1,20 @@
+/* Social icons */
+.fa-telegram{
+    color: #2ba3d7;
+}
+
+.fa-whatsapp{
+    color: #54cd62;
+}
+
+.fa-twitter{
+    color: #1c9cea;
+}
+
+.fa-facebook{
+    color: #4064ac;
+}
+
+.fa-telegram:hover, .fa-whatsapp:hover, .fa-twitter:hover, .fa-facebook:hover{
+    color: grey;
+}
