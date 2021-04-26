@@ -12,7 +12,8 @@
                                         <img class="img-fluid" src="https://pagaments.inscamidemar.cat/images/logo_2.png" alt="logo Camí de Mar">
                                     </div>
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xl-6 benvingut">
-                                        <h1 class="text-center">Benvingut {{ $user->name }}!</h1>
+                                        {{-- <h1 class="text-center">Benvingut {{ $user->name }}!</h1> --}}
+                                        <h1 class="text-center">Benvingut User!</h1>
                                     </div>
                                 </div>
                             </div>

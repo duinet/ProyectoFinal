@@ -25,13 +25,12 @@ Route::get('/',  [PlantillaController::class, 'welcome']);
 
 Route::get('/tipopagos', [PlantillaController::class, 'tipopagos']);
 
-Route::get('/tipopagos/pago/{id}', [PlantillaController::class,'pago']);
-
+//Route::get('/tipopagos/pago/{id}', [PlantillaController::class,'pago']);
+Route::get('/tipopagos/pago', [PlantillaController::class,'pago']);
 
 Route::get('/dashboard/categories',[CategoriesController::class,'index'])->middleware(['auth']);
 
 Route::get('/dashboard',[HomeDashboardController::class,'index'])->middleware(['auth']);
-
 
 
 require __DIR__.'/auth.php';

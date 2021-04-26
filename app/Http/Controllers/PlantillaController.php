@@ -27,10 +27,16 @@ class PlantillaController extends Controller
         return view('pagos.tipopagos', compact('categories','arrayCurs', 'pagaments'));
     }
 
-    public function pago($id){
+    // public function pago($id){
+    //     $categories = Categories::all();
+    //     $pagament = Pagaments::Find($id);
+    //     return view('pagos.pago', compact('categories', 'pagament'));
+    // }
+
+    public function pago(){
         $categories = Categories::all();
-        $pagament = Pagaments::Find($id);
-        return view('pagos.pago', compact('categories', 'pagament'));
+        // $pagament = Pagaments::Find($id);
+        return view('pagos.pago', compact('categories'));
     }
 
 
