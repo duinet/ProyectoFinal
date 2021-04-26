@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\Categories;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -18,7 +19,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        $categories = Categories::all();
+        return view('auth.login', compact('categories'));
     }
 
     /**

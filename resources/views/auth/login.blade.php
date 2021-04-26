@@ -39,11 +39,9 @@
                 <x-button class="mt-3 mb-3 btn btn-primary">
                     {{ __('Log in') }}
                 </x-button>
-                @if (Route::has('password.request'))
-                    <a class="text-decoration-none ms-2" href="{{ route('password.request') }}">
-                        {{ __('Has oblidat la contrasenya?') }}
-                    </a>
-                @endif
+                <a class="text-decoration-none ms-2" href="/forgot-password">
+                    Has oblidat la contrasenya?
+                </a>
                 <div class="">
                     <a href="{{ url('/auth/google') }}" class="btn btn-google"><i class="fab fa-google"></i> Iniciar amb Google</a>
                 </div>

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use App\Models\Pagaments;
+use App\Notifications\UserResetPassword;
 
 class User extends Authenticatable
 {
@@ -46,5 +47,11 @@ class User extends Authenticatable
     public function pagaments()
     {
         return $this->hasMany(Pagaments::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $url = 'http://127.0.0.1:8000/reset-password/';
+        $this->notify(new UserResetPassword($token, $url));
     }
 }

@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pagos\PagoController;
 use App\Http\Controllers\Pagos\TipoPagosController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PlantillaController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\HomeDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +21,18 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [PlantillaController::class, 'welcome']);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/tipopagos', [PlantillaController::class, 'tipopagos']);
 
-Route::get('/tipopagos', [TipoPagosController::class, 'index']);
+Route::get('/tipopagos/pago/{id}', [PlantillaController::class,'pago']);
 
-Route::get('/tipopagos/pago',[PagoController::class,'index']);
+
+Route::get('/dashboard/categories',[CategoriesController::class,'index'])->middleware(['auth']);
+
+Route::get('/dashboard',[HomeDashboardController::class,'index'])->middleware(['auth']);
+
+
 
 require __DIR__.'/auth.php';
 

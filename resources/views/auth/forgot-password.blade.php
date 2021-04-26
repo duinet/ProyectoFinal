@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="resetpass">
-    <form method="POST" action="{{ route('password.email') }}" class="pt-4 ms-5">
+    <form method="POST" action="" class="pt-4 ms-5">
         @csrf
         <!-- Email Address -->
         <div class="col-4 pt-3">

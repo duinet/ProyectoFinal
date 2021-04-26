@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
+use App\Models\Categories;
+use App\Notifications\UserResetPassword;
+
 class NewPasswordController extends Controller
 {
     /**
@@ -18,7 +21,8 @@ class NewPasswordController extends Controller
      */
     public function create(Request $request)
     {
-        return view('auth.reset-password', ['request' => $request]);
+        $categories = Categories::all();
+        return view('auth.reset-password', ['request' => $request], compact('categories'));
     }
 
     /**

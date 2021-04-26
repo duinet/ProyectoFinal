@@ -2,9 +2,11 @@
 @section('content')
     <div id="descriptionHome" class="p-3 px-5">
         <div class="pago">
-            <h2 class="mt-3 mb-3">Lloguer Taquilles</h2>
+            <h2 class="mt-3 mb-3">{{$pagament->pagament}}</h2>
             <p>Benvolgudes famílies.</p> 
-            <p>Podeu fer l'ingrés de span 30€ en concepte de lloguer de taquilla.</p>
+            <p>Podeu fer l'ingrés de <strong>{{$pagament->preu}}€</strong> en concepte de {{$pagament->pagament}}.</p>
+            <p>{{$pagament->descripcio}}</p>
+            <p>IMPORT: <strong>{{$pagament->preu}}€</strong></p>
             {{-- fijo --}}
             <p>Atentament <a href="#" class="text-decoration-none">INS Camí de Mar</a href="#" class="text-decoration-none"></p>
             <a href="#" class="text-decoration-none">Fer pagament</a>

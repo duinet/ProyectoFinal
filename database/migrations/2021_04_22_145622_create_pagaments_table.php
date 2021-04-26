@@ -17,7 +17,7 @@ class CreatePagamentsTable extends Migration
             $table->id();
             $table->foreignId('categoria_id')->references('id')->on('categories');
             $table->foreignId('compte_id')->references('id')->on('comptes');
-            $table->enum('curs', ['ESO', 'BAT', 'CF']);
+            $table->string('curs', 50);
             // $table->text('comanda');
             $table->string('pagament',100);
             $table->text('descripcio',100);
