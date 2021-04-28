@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="{{ asset('assets/dashboard/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dashboard/dist/css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+
+    {{-- datatables.net cdn --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    
+    {{-- responsive cdn datatables --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -36,7 +47,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{-- {{ $user->name }} --}}
-                        User
+                        usuari
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <form method="POST" action="{{ route('logout') }}">
@@ -72,13 +83,25 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="/dashboard/comptes" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Comptes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/dashboard/cursos" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Cursos</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/dashboard/pagaments" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Pagaments</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="/dashboard/usuaris" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Usuaris</p>
                             </a>
@@ -114,5 +137,27 @@
     </script>
     <script src="{{ asset('assets/dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/dist/js/adminlte.js') }}"></script>
+    
+    {{-- scripts datatables --}}
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $('#example').DataTable(
+            {
+                responsive: true,
+                autoWidth: false
+            }
+        );
+    </script>
+
+    {{-- scripts datatables responsive tables --}}
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+
+    {{-- ckeditor --}}
+    <script src="{{ asset('assets/vendors/ckeditor/ckeditor.js') }}"></script>
+
+
 </body>
 </html>

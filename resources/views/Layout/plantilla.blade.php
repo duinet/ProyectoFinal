@@ -37,13 +37,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="main_nav">
                         <ul class="navbar-nav">
-                            {{-- @foreach($categories as $categoria)
+                            @foreach($categories as $categoria)
                                 <li class="nav-item"><a class="nav-link" href="/tipopagos"> {{ $categoria->categoria }} </a></li>
-                            @endforeach --}}
-                            <li class="nav-item"><a class="nav-link" href="/tipopagos">Sortides</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/tipopagos">Sortides amb pernoctació</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/tipopagos">Matricules</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/tipopagos">Professorat</a></li>
+                            @endforeach
                             <li class="nav-item"><a class="nav-link" href="/login"> Login </a></li>
                         </ul>
                     </div> 
