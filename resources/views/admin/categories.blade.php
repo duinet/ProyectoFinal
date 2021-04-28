@@ -25,10 +25,10 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">Id</th>
-                                                <th scope="col">Categoria</th>
-                                                <th scope="col">Ultima modificació</th>
-                                                <th scope="col">Estat</th>
-                                                <th scope="col">####</th>
+                                                <th data-priority="1" scope="col">Categoria</th>
+                                                <th data-priority="2" scope="col">Ultima mod</th>
+                                                <th data-priority="1" scope="col">Estat</th>
+                                                <th data-priority="2" scope="col">####</th>
                                             </tr>
                                         </thead>
                                         <tbody>

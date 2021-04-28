@@ -33,8 +33,8 @@
                                                 <th scope="col">Preu</th>
                                                 <th scope="col">Data_fi</th>
                                                 <th scope="col">Ultima mod</th>
-                                                <th scope="col">Estat</th>
-                                                <th scope="col">#</th>
+                                                <th data-priority="1" scope="col" >Estat</th>
+                                                <th data-priority="2" scope="col">#</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -45,7 +45,7 @@
                                                     <td>{{$pagament->compte_id}}</td>
                                                     <td>{{$pagament->curs}}</td>
                                                     <td>{{$pagament->pagament}}</td>
-                                                    <td>{{$pagament->descripcio}}</td>
+                                                    <td id="camposL">{{$pagament->descripcio}}</td>
                                                     <td>{{$pagament->preu}}</td>
                                                     <td>{{$pagament->data_fi}}</td>
                                                     <td>{{$pagament->updated_at->diffForHumans()}}</td>

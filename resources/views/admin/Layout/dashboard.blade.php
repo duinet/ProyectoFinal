@@ -12,10 +12,10 @@
         <link rel="stylesheet" href="{{ asset('assets/dashboard/dist/css/dashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
+        <link rel="stylesheet" href="{{ asset('assets/dashboard/dist/css/table.css') }}">
+
         {{-- datatables.net cdn --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
         
         {{-- responsive cdn datatables --}}
@@ -26,9 +26,11 @@
 
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
-            <div class="preloader flex-column justify-content-center align-items-center">
-                <img class="animation__shake" src="https://pagaments.inscamidemar.cat/images/logo_2.png" alt="Cami de mar logo">
-            </div>
+            @if(Request::url() === 'http://127.0.0.1:8000/dashboard') 
+                <div class="preloader flex-column justify-content-center align-items-center">
+                    <img class="animation__shake" src="https://pagaments.inscamidemar.cat/images/logo_2.png" alt="Cami de mar logo">
+                </div>
+            @endif
             <nav class="main-header navbar navbar-expand navbar-white navbar-light">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -117,7 +119,7 @@
                 <strong>INS Camí de Mar &copy; 2021 <a href="https://adminlte.io">Samuel & Jaime </a>.</strong>
                 Drets reservats
                 <div class="float-right d-none d-sm-inline-block">
-                    <b>Version</b> 1.0
+                    <b>Version</b> 1.2
                 </div>
             </footer>
             <aside class="control-sidebar control-sidebar-dark"></aside>
@@ -142,12 +144,29 @@
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
         <script>
-            $('#example').DataTable(
-                {
-                    responsive: true,
-                    autoWidth: false
-                }
-            );
+            $(document).ready(function() {
+                $('#example').DataTable(
+                    {
+                        responsive: true,
+                        autoWidth: true,
+                        columnDefs: [
+                            { responsivePriority: 1, targets: 0 },
+                            { responsivePriority: 2, targets: -1 }
+                        ]
+                    }
+                );
+                
+                // $tamano = $(window).width();
+                // $campoL = $('#camposL').text();
+                // console.log($campoL.length);
+                // if($tamano == 1033){
+                //     if ($campoL.length > 75){
+                //         $campoL = $campoL.length.splice(0,10);
+                //     }
+                // }
+                // console.log($campoL);
+            
+            });
         </script>
 
         {{-- scripts datatables responsive tables --}}

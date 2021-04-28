@@ -24,13 +24,13 @@
                                     <table id="example" class="table table-striped table-bordered dt-responsive nowrap">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Id</th>
-                                                <th scope="col">Compte</th>
-                                                <th scope="col">Fuc</th>
-                                                <th scope="col">Clau</th>
-                                                <th scope="col">Ultima modificació</th>
-                                                <th scope="col">Estat</th>
-                                                <th scope="col">####</th>
+                                                <th data-priority="1" scope="col">Id</th>
+                                                <th data-priority="1" scope="col">Compte</th>
+                                                <th data-priority="2" scope="col">Fuc</th>
+                                                <th data-priority="2" scope="col">Clau</th>
+                                                <th data-priority="2" scope="col">Ultima mod</th>
+                                                <th data-priority="1" scope="col">Estat</th>
+                                                <th data-priority="2" scope="col">####</th>
                                             </tr>
                                         </thead>
                                         <tbody>

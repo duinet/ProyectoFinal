@@ -28,8 +28,8 @@
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">creado desde</th>
-                                                <th scope="col">Estat</th>
-                                                <th scope="col">####</th>
+                                                <th data-priority="1" scope="col">Estat</th>
+                                                <th data-priority="2" scope="col">####</th>
                                             </tr>
                                         </thead>
                                         <tbody>
