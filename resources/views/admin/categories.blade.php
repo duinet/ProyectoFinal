@@ -27,6 +27,7 @@
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Categoria</th>
                                                 <th scope="col">Ultima modificació</th>
+                                                <th scope="col">Estat</th>
                                                 <th scope="col">####</th>
                                             </tr>
                                         </thead>
@@ -37,8 +38,13 @@
                                                     <td>{{$categoria->categoria}}</td>
                                                     <td>{{$categoria->updated_at->diffForHumans()}}</td>
                                                     <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" @if($categoria->estat == true)checked @endif class="custom-control-input" name="{{ $categoria->id }}" id="estatCategories">
+                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
                                                         <a href=""><i class="fas fa-edit"></i></a>
-                                                        <a href={{"/dashboard/categories/delete/".$categoria->id}}><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

@@ -37,22 +37,26 @@ Route::get('/tipopagos/pago/{id}', [PlantillaController::class,'pago']);
 // CATEGORIES
 Route::get('/dashboard/categories',[CategoriesController::class,'index'])->middleware(['auth']);
 Route::post('/dashboard/categories/add',[CategoriesController::class,'add'])->middleware(['auth']);
-Route::get('/dashboard/categories/delete/{id}',[CategoriesController::class,'delete'])->middleware(['auth']);
+Route::get('/dashboard/categories/activate/{id}',[CategoriesController::class,'activate'])->middleware(['auth']);
+Route::get('/dashboard/categories/desactivate/{id}',[CategoriesController::class,'desactivate'])->middleware(['auth']);
 
 // COMPTES
 Route::get('/dashboard/comptes',[ComptesController::class,'index'])->middleware(['auth']);
 Route::post('/dashboard/comptes/add',[ComptesController::class,'add'])->middleware(['auth']);
-Route::get('/dashboard/comptes/delete/{id}',[ComptesController::class,'delete'])->middleware(['auth']);
+Route::get('/dashboard/comptes/activate/{id}',[ComptesController::class,'activate'])->middleware(['auth']);
+Route::get('/dashboard/comptes/desactivate/{id}',[ComptesController::class,'desactivate'])->middleware(['auth']);
 
 // PAGAMENTS
 Route::get('/dashboard/pagaments',[PagamentsController::class,'index'])->middleware(['auth']);
 Route::post('/dashboard/pagaments/add',[PagamentsController::class,'add'])->middleware(['auth']);
-Route::get('/dashboard/pagaments/delete/{id}',[PagamentsController::class,'delete'])->middleware(['auth']);
+Route::get('/dashboard/pagaments/activate/{id}',[PagamentsController::class,'activate'])->middleware(['auth']);
+Route::get('/dashboard/pagaments/desactivate/{id}',[PagamentsController::class,'desactivate'])->middleware(['auth']);
 
 // CURSOS
 Route::get('/dashboard/cursos',[CursosController::class,'index'])->middleware(['auth']);
 Route::post('/dashboard/cursos/add',[CursosController::class,'add'])->middleware(['auth']);
-Route::get('/dashboard/cursos/delete/{id}',[cursosController::class,'delete'])->middleware(['auth']);
+Route::get('/dashboard/cursos/activate/{id}',[cursosController::class,'activate'])->middleware(['auth']);
+Route::get('/dashboard/cursos/desactivate/{id}',[cursosController::class,'desactivate'])->middleware(['auth']);
 
 // USUARIS
 Route::get('/dashboard/usuaris',[UsuarisController::class,'index'])->middleware(['auth']);

@@ -13,7 +13,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $categories = Categories::where('estat', '!=', 0)->get();
+        $categories = Categories::all();
 
         return view('admin.categories', compact('categories','user'));
     }
@@ -28,7 +28,15 @@ class CategoriesController extends Controller
         return redirect('/dashboard/categories');
     }
 
-    public function delete($id)
+    public function activate($id)
+    {
+        $categoria = DB::table('categories')
+              ->where('id', $id)
+              ->update(['estat' => 1]);
+        return redirect('/dashboard/categories');
+    }
+
+    public function desactivate($id)
     {
         $categoria = DB::table('categories')
               ->where('id', $id)

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header">Cursos</div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
@@ -27,6 +27,7 @@
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Cursos</th>
                                                 <th scope="col">Ultima modificació</th>
+                                                <th scope="col">Estat</th>
                                                 <th scope="col">####</th>
                                             </tr>
                                         </thead>
@@ -37,8 +38,13 @@
                                                     <td>{{$curs->curs}}</td>
                                                     <td>{{$curs->updated_at->diffForHumans()}}</td>
                                                     <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" @if($curs->estat == true)checked @endif class="custom-control-input" name="{{ $curs->id }}" id="estatCategories">
+                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
                                                         <a href=""><i class="fas fa-edit"></i></a>
-                                                        <a href={{"/dashboard/cursos/delete/".$curs['id']}}><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

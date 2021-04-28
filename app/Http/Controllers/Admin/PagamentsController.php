@@ -30,10 +30,19 @@ class PagamentsController extends Controller
         return redirect('/dashboard/pagaments');
     }
 
-    public function delete($id)
+    public function activate($id)
     {
-        $pagament = Pagaments::find($id);
-        $pagament->delete();
+        $pagament = DB::table('pagaments')
+              ->where('id', $id)
+              ->update(['estat' => 1]);
+        return redirect('/dashboard/pagaments');
+    }
+
+    public function desactivate($id)
+    {
+        $pagament = DB::table('pagaments')
+              ->where('id', $id)
+              ->update(['estat' => 0]);
         return redirect('/dashboard/pagaments');
     }
 

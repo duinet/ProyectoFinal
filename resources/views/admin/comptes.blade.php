@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header">Comptes</div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
@@ -29,6 +29,7 @@
                                                 <th scope="col">Fuc</th>
                                                 <th scope="col">Clau</th>
                                                 <th scope="col">Ultima modificació</th>
+                                                <th scope="col">Estat</th>
                                                 <th scope="col">####</th>
                                             </tr>
                                         </thead>
@@ -41,8 +42,13 @@
                                                     <td>{{$compte->clau}}</td>
                                                     <td>{{$compte->updated_at->diffForHumans()}}</td>
                                                     <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" @if($compte->estat == true)checked @endif class="custom-control-input" name="{{ $compte->id }}" id="estatCategories">
+                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
                                                         <a href=""><i class="fas fa-edit"></i></a>
-                                                        <a href={{"/dashboard/comptes/delete/".$compte['id']}}><i class="fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

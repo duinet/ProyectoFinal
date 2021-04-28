@@ -13,7 +13,7 @@ class ComptesController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $comptes = Comptes::where('estat', '!=', 0)->get();
+        $comptes = Comptes::all();
 
         return view('admin.comptes', compact('comptes','user'));
     }
@@ -30,7 +30,15 @@ class ComptesController extends Controller
         return redirect('/dashboard/comptes');
     }
 
-    public function delete($id)
+    public function activate($id)
+    {
+        $compte = DB::table('comptes')
+              ->where('id', $id)
+              ->update(['estat' => 1]);
+        return redirect('/dashboard/comptes');
+    }
+
+    public function desactivate($id)
     {
         $compte = DB::table('comptes')
               ->where('id', $id)

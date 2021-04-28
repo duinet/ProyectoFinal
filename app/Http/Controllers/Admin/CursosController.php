@@ -13,7 +13,7 @@ class CursosController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $cursos = Cursos::where('estat', '!=', 0)->get();
+        $cursos = Cursos::all();
 
         return view('admin.cursos', compact('cursos','user'));
     }
@@ -28,7 +28,15 @@ class CursosController extends Controller
         return redirect('/dashboard/cursos');
     }
 
-    public function delete($id)
+    public function activate($id)
+    {
+        $curs = DB::table('cursos')
+              ->where('id', $id)
+              ->update(['estat' => 1]);
+        return redirect('/dashboard/cursos');
+    }
+
+    public function desactivate($id)
     {
         $curs = DB::table('cursos')
               ->where('id', $id)

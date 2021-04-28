@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header">Usuaris</div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
@@ -28,6 +28,8 @@
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">creado desde</th>
+                                                <th scope="col">Estat</th>
+                                                <th scope="col">####</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -37,7 +39,15 @@
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->email}}</td>
                                                     <td>{{$user->created_at}}</td>
-
+                                                    <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" @if($user->estat == true)checked @endif class="custom-control-input" name="{{ $user->id }}" id="estatCategories">
+                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href=""><i class="fas fa-edit"></i></a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -53,7 +63,7 @@
                                                 <input type="text" class="form-control" id="Categoria" placeholder="Nom de la categoria">
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        <button type="submit" class="btn btn-primary">Afegir</button>
                                     </form>
                                 </div>
                                 {{-- End content add value --}}
