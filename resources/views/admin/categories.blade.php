@@ -50,12 +50,19 @@
                                 <div class="tab-pane fade" id="afegirRegistre" role="tabpanel" aria-labelledby="afegirRegistre-tab">
                                     <form action="/dashboard/categories/add" method="POST">
                                         <div class="form-row">
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col-md-8">
                                                 <label for="Categoria">Categoria</label>
                                                 <input type="text" class="form-control" id="Categoria" name="Categoria" placeholder="Nom de la categoria">
                                             </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="Estat">Estat</label>
+                                                <select class="form-control"  name="estat" id="Estat" placeholder="Estat">
+                                                    <option value="1">Actiu</option>
+                                                    <option value="0">Inactiu</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        <button type="submit" class="btn btn-primary">Afegir</button>
                                         @csrf
                                     </form>
                                 </div>

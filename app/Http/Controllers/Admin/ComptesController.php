@@ -6,12 +6,14 @@ use App\Models\Comptes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use DB;
+
 class ComptesController extends Controller
 {
     public function index()
     {
         $user = auth()->user();
-        $comptes = Comptes::all();
+        $comptes = Comptes::where('estat', '!=', 0)->get();
 
         return view('admin.comptes', compact('comptes','user'));
     }
@@ -22,6 +24,7 @@ class ComptesController extends Controller
         $comptes->compte=$request->input('compte');
         $comptes->fuc=$request->input('fuc');
         $comptes->clau=$request->input('clau');
+        $comptes->estat=$request->input('estat');
         $comptes->usuari_id= auth()->user()->id;
         $comptes->save();
         return redirect('/dashboard/comptes');
@@ -29,8 +32,9 @@ class ComptesController extends Controller
 
     public function delete($id)
     {
-        $categoria = Comptes::find($id);
-        $categoria->delete();
+        $compte = DB::table('comptes')
+              ->where('id', $id)
+              ->update(['estat' => 0]);
         return redirect('/dashboard/comptes');
     }
 

@@ -18,6 +18,7 @@ class CreateComptesTable extends Migration
             $table->text('compte');
             $table->integer('fuc');
             $table->text('clau');
+            $table->integer('estat');
             $table->foreignId('usuari_id')->references('id')->on('users');
             $table->timestamps();
         });

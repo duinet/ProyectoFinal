@@ -66,8 +66,15 @@
                                                 <label for="clau">Clau</label>
                                                 <input type="text" class="form-control" name="clau" id="clau" placeholder="clau">
                                             </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="Estat">Estat</label>
+                                                <select class="form-control"  name="estat" id="Estat" placeholder="Estat">
+                                                    <option value="1">Actiu</option>
+                                                    <option value="0">Inactiu</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        <button type="submit" class="btn btn-primary">Afegir</button>
                                         @csrf
                                     </form>
                                 </div>
