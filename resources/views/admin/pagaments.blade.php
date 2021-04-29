@@ -51,8 +51,8 @@
                                                     <td>{{$pagament->updated_at->diffForHumans()}}</td>
                                                     <td>
                                                         <div class="custom-control custom-switch">
-                                                            <input type="checkbox" @if($pagament->estat == true)checked @endif class="custom-control-input" name="{{ $pagament->id }}" id="estatCategories">
-                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                            <input type="checkbox" @if($pagament->estat == true)checked @endif class="custom-control-input" name="{{ $pagament->id }}" id="estatCategories{{ $pagament->id }}">
+                                                            <label class="custom-control-label" for="estatCategories{{ $pagament->id }}"></label>
                                                         </div>
                                                     </td>
                                                     <td>

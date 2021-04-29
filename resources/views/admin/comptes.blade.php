@@ -43,8 +43,8 @@
                                                     <td>{{$compte->updated_at->diffForHumans()}}</td>
                                                     <td>
                                                         <div class="custom-control custom-switch">
-                                                            <input type="checkbox" @if($compte->estat == true)checked @endif class="custom-control-input" name="{{ $compte->id }}" id="estatCategories">
-                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                            <input type="checkbox" @if($compte->estat == true)checked @endif class="custom-control-input" name="{{ $compte->id }}" id="estatCategories{{ $compte->id }}">
+                                                            <label class="custom-control-label" for="estatCategories{{ $compte->id }}"></label>
                                                         </div>
                                                     </td>
                                                     <td>

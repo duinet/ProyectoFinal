@@ -41,8 +41,8 @@
                                                     <td>{{$user->created_at}}</td>
                                                     <td>
                                                         <div class="custom-control custom-switch">
-                                                            <input type="checkbox" @if($user->estat == true)checked @endif class="custom-control-input" name="{{ $user->id }}" id="estatCategories">
-                                                            <label class="custom-control-label" for="estatCategories"></label>
+                                                            <input type="checkbox" @if($user->estat == true)checked @endif class="custom-control-input" name="{{ $user->id }}" id="estatCategories{{ $user->id }}">
+                                                            <label class="custom-control-label" for="estatCategories{{ $user->id }}"></label>
                                                         </div>
                                                     </td>
                                                     <td>
