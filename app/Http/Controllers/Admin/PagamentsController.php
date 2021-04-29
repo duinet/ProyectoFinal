@@ -24,7 +24,15 @@ class PagamentsController extends Controller
     public function add(Request $request)
     {
         $pagaments = new Pagaments();
-        $pagaments->categoria=$request->input('Categoria');
+        $pagaments->categoria_id=$request->input('categoria');
+        $pagaments->compte_id=$request->input('compte');
+        $pagaments->curs_id=$request->input('curs_id');
+        $pagaments->curs=$request->input('curs');
+        $pagaments->pagament=$request->input('pagament');
+        $pagaments->preu=$request->input('preu');
+        $pagaments->descripcio=$request->input('descripcio');
+        $pagaments->data_fi=$request->input('data_fi');
+        $pagaments->estat=$request->input('estat');
         $pagaments->usuari_id= auth()->user()->id;
         $pagaments->save();
         return redirect('/dashboard/pagaments');

@@ -61,7 +61,8 @@ Route::get('/dashboard/cursos/desactivate/{id}',[cursosController::class,'desact
 // USUARIS
 Route::get('/dashboard/usuaris',[UsuarisController::class,'index'])->middleware(['auth']);
 Route::post('/dashboard/usuaris/add',[UsuarisController::class,'add'])->middleware(['auth']);
-Route::get('/dashboard/usuaris/delete/{id}',[UsuarisController::class,'delete'])->middleware(['auth']);
+Route::get('/dashboard/usuaris/activate/{id}',[UsuarisController::class,'activate'])->middleware(['auth']);
+Route::get('/dashboard/usuaris/desactivate/{id}',[UsuarisController::class,'desactivate'])->middleware(['auth']);
 
 // HOME
 Route::get('/dashboard',[HomeDashboardController::class,'index'])->middleware(['auth']);

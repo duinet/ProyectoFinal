@@ -62,15 +62,15 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="compte">Compte</label>
-                                                <input type="text" class="form-control" name="compte" id="compte" placeholder="Nom del compte">
+                                                <input type="text" class="form-control" name="compte" id="compte" placeholder="Nom del compte" required>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="fuc">Fuc</label>
-                                                <input type="number" class="form-control" name="fuc" id="fuc" placeholder="fuc">
+                                                <input type="number" class="form-control" name="fuc" id="fuc" placeholder="fuc" required>
                                             </div>
                                             <div class="form-group col-md-12">
                                                 <label for="clau">Clau</label>
-                                                <input type="text" class="form-control" name="clau" id="clau" placeholder="clau">
+                                                <input type="text" class="form-control" name="clau" id="clau" placeholder="clau" required>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="Estat">Estat</label>

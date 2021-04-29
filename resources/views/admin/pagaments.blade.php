@@ -40,7 +40,7 @@
                                         <tbody>
                                             @foreach ($pagaments as $pagament)
                                                 <tr>
-                                                    <th scope="row">{{$pagament->id}}</th>
+                                                    <th scope="row" id="ampliar">{{$pagament->id}}</th>
                                                     <td>{{$pagament->categoria_id}}</td>
                                                     <td>{{$pagament->compte_id}}</td>
                                                     <td>{{$pagament->curs}}</td>
@@ -66,46 +66,64 @@
                                 {{-- End content tabla --}}
                                 {{-- Content add value --}}
                                 <div class="tab-pane fade" id="afegirRegistre" role="tabpanel" aria-labelledby="afegirRegistre-tab">
-                                    <form>
+                                    <form action="/dashboard/pagaments/add" method="POST">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="Categoria">Categoria</label>
-                                                <select class="form-control"  name="categoria" id="Categoria" placeholder="categoria">
+                                                <select class="form-control"  name="categoria" id="Categoria" placeholder="Categoria">
                                                     @foreach ($categories as $categoria)
                                                     <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
                                                     @endforeach
                                                 </select>
 
                                                 <label for="compte">Compte</label>
-                                                <select class="form-control" name="compte" id="compte" placeholder="compte">
+                                                <select class="form-control" name="compte" id="compte" placeholder="Compte" required>
                                                     @foreach ($comptes as $compte)
                                                     <option value="{{$compte->id}}">{{$compte->compte}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="curs">Curs</label>
-                                                <select class="form-control" name="curs" id="curs" placeholder="curs">
-                                                    @foreach ($cursos as $curs)
-                                                    <option value="{{$curs->id}}">{{$curs->curs}}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label for="preu">Preu</label>
+                                                <input type="number" class="form-control" id="preu" name="preu" placeholder="preu en €" required>
 
+                                                <label for="data_fi">Data final</label>
+                                                <input type="date" class="form-control" id="data_fi" name="data_fi" placeholder="Ultim dia per a pagar" required>
+                                                
+                                            </div>
+                                            <div class="form-group col-md-6">
                                                 <label for="curs">Curs</label>
-                                                <select class="form-control" name="curs" id="curs" placeholder="curs">
+                                                <input type="text" class="form-control" id="curs" name="curs" placeholder="Curs" required>
+                                                
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                            <label for="curs_id">curs (anual)</label>
+                                                <select class="form-control" name="curs_id" id="curs_id" placeholder="curs (anual)">
                                                     @foreach ($cursos as $curs)
                                                     <option value="{{$curs->id}}">{{$curs->curs}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="pagament">Pagament</label>
+                                                <input type="text" class="form-control" id="pagament" name="pagament" placeholder="Concepte del pagament" required>
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                    <label for="Estat">Estat</label>
+                                                    <select class="form-control"  name="estat" id="Estat" placeholder="Estat">
+                                                        <option value="1">Actiu</option>
+                                                        <option value="0">Inactiu</option>
+                                                    </select>
+                                            </div>
                                             <div class="form-group col-md-12">
                                                 <label for="descripcio">Descripció</label>
-                                                <textarea  class="ckeditor" name="descripcio" id="descripcio" rows="10" cols="80" placeholder="">
-                                                    Afegeix una descripció del pagament
+                                                <textarea  class="ckeditor" name="descripcio" id="descripcio" placeholder="afegeix una descripcio">
+                                                    
                                                 </textarea>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Afegir</button>
+                                        @csrf
                                     </form>
                                 </div>
                                 {{-- End content add value --}}

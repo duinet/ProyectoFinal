@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="{{ asset('assets/dashboard/dist/css/dashboard.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('assets/dashboard/dist/css/table.css') }}">
-
         {{-- datatables.net cdn --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
@@ -143,31 +141,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('#example').DataTable(
-                    {
-                        responsive: true,
-                        autoWidth: true,
-                        columnDefs: [
-                            { responsivePriority: 1, targets: 0 },
-                            { responsivePriority: 2, targets: -1 }
-                        ]
-                    }
-                );
-                
-                // $tamano = $(window).width();
-                // $campoL = $('#camposL').text();
-                // console.log($campoL.length);
-                // if($tamano == 1033){
-                //     if ($campoL.length > 75){
-                //         $campoL = $campoL.length.splice(0,10);
-                //     }
-                // }
-                // console.log($campoL);
-            
-            });
-        </script>
 
         {{-- scripts datatables responsive tables --}}
         <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>

@@ -14,6 +14,7 @@ class Pagaments extends Model
         'categoria_id',
         'usuari_id',
         'compte_id',
+        'curs_id',
         'curs',
         'pagament',
         'descripcio',

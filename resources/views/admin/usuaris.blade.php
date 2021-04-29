@@ -56,14 +56,22 @@
                                 {{-- End content tabla --}}
                                 {{-- Content add value --}}
                                 <div class="tab-pane fade" id="afegirRegistre" role="tabpanel" aria-labelledby="afegirRegistre-tab">
-                                    <form>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-12">
-                                                <label for="Categoria">Categoria</label>
-                                                <input type="text" class="form-control" id="Categoria" placeholder="Nom de la categoria">
-                                            </div>
+                                    <form action="/dashboard/usuaris/add" method="POST">
+                                        <div class="form-group col-md-6">
+                                            <label for="name">Nom</label>
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Nom del usuari" required>
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="email del usuari" required>
+                                            <label for="password">Contraseña</label>
+                                            <input type="password" class="form-control" name="password" id="password" placeholder="contraseña" required>
+                                            <label for="Estat">Estat</label>
+                                            <select class="form-control"  name="estat" id="Estat" placeholder="Estat">
+                                                <option value="1">Actiu</option>
+                                                <option value="0">Inactiu</option>
+                                            </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Afegir</button>
+                                        @csrf
                                     </form>
                                 </div>
                                 {{-- End content add value --}}

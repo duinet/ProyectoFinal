@@ -58,7 +58,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-8">
                                                 <label for="curs">Curs</label>
-                                                <input type="text" class="form-control" id="curs" name="curs" placeholder="Nom del curs">
+                                                <input type="text" class="form-control" id="curs" name="curs" placeholder="Nom del curs" required>
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="Estat">Estat</label>
