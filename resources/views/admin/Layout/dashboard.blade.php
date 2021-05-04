@@ -49,8 +49,8 @@
                             {{ $user->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+                            <form method="POST" action="{{ route('logout') }}" id="logout">
+                                @csrf
                                 <button class="btn">Logout</button>
                             </form>
                         </div>
@@ -59,7 +59,7 @@
             </nav>
 
             <aside class="main-sidebar sidebar-dark-primary elevation-4">
-                <a href="https://www.inscamidemar.cat" class="brand-link">
+                <a href="/" class="brand-link">
                     <span class="brand-text font-weight-light">CAMÍ DE MAR</span>
                 </a>
                 <div class="sidebar">
@@ -77,31 +77,31 @@
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item">
                                 <a href="/dashboard/categories" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="fas fa-layer-group mr-3 ml-2"></i>
                                     <p>Categories</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/dashboard/comptes" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="fas fa-piggy-bank mr-3 ml-2"></i>
                                     <p>Comptes</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/dashboard/cursos" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="fas fa-graduation-cap mr-3 ml-2"></i>
                                     <p>Cursos</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/dashboard/pagaments" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="fas fa-coins mr-3 ml-2"></i>
                                     <p>Pagaments</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/dashboard/usuaris" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
+                                    <i class="fas fa-user mr-3 ml-2"></i>
                                     <p>Usuaris</p>
                                 </a>
                             </li>
@@ -114,7 +114,7 @@
             </div>
 
             <footer class="main-footer">
-                <strong>INS Camí de Mar &copy; 2021 <a href="https://adminlte.io">Samuel & Jaime </a>.</strong>
+                <strong><a href="www.inscamidemar.cat" class="text-decoration-none">INS Camí de Mar</a> &copy; 2021 Samuel & Jaime.</strong>
                 Drets reservats
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.2
@@ -134,7 +134,7 @@
         <script>
             $.widget.bridge('uibutton', $.ui.button)
         </script>
-        <script src="{{ asset('assets/dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+        {{-- <script src="{{ asset('assets/dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script> --}}
         <script src="{{ asset('assets/dashboard/dist/js/adminlte.js') }}"></script>
         
         {{-- scripts datatables --}}
@@ -149,6 +149,9 @@
         {{-- ckeditor --}}
         <script src="{{ asset('assets/vendors/ckeditor/ckeditor.js') }}"></script>
         <script src="{{ asset('assets/dashboard/dist/js/custom.js') }}"></script>
-
+        @if(Request::url() === 'http://127.0.0.1:8000/dashboard') 
+        {{--LocalDate--}}
+            <script src="{{ asset('assets/dashboard/dist/js/localDate.js') }}"></script>
+        @endif
     </body>
 </html>

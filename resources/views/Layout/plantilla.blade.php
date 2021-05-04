@@ -38,7 +38,7 @@
                     <div class="collapse navbar-collapse" id="main_nav">
                         <ul class="navbar-nav">
                             @foreach($categories as $categoria)
-                                <li class="nav-item"><a class="nav-link" href="/tipopagos"> {{ $categoria->categoria }} </a></li>
+                                <li class="nav-item"><a class="nav-link" href="/tipopagos/{{ $categoria->id }}"> {{ $categoria->categoria }} </a></li>
                             @endforeach
                             <li class="nav-item"><a class="nav-link" href="/login"> Login </a></li>
                         </ul>

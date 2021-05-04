@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    // Ajax que se encarga de habilitar y deshabilitar los datos de los campos
     $("input:checkbox").change(function() { 
         url = window.location.pathname;
         if($(this).is(":checked")) {
@@ -15,6 +16,7 @@ $(document).ready(function(){
         }
     });
 
+    // Jquery de la tabla
     $('#example').DataTable(
         {
             responsive: true,
@@ -26,12 +28,10 @@ $(document).ready(function(){
         }
     );
     
-    // $tamano = $(window).width();
     $campoL = $('#camposL').text();
     if($campoL.length > 50){
         var text = $campoL.substring(0, 30);
         console.log(text);
-        // $('#camposL').html(text);
         document.querySelector('#camposL').innerHTML = text;
         console.log($('#camposL').text());
     }

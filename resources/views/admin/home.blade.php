@@ -16,6 +16,9 @@
                                         <h1 class="text-center">Benvingut {{ $user->name }}!</h1>
                                     </div>
                                 </div>
+                                <div class="alert alert-warning mt-4" role="alert">
+                                    <span class="h5">Ultima conexiò: </span><p id="lastcon"></p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use DB;
+
 
 class Pagaments extends Model
 {
@@ -22,4 +24,11 @@ class Pagaments extends Model
         'data_fi',
         'estat',
     ];
+
+    public static function disablePagaments()
+    {
+        DB::table('pagaments')
+              ->where('data_fi', '<', date('Y-m-d'))
+              ->update(['estat' => 0]);
+    } 
 }

@@ -28,6 +28,15 @@ class CursosController extends Controller
         return redirect('/dashboard/cursos');
     }
 
+    public function edit(Request $request, $id)
+    {
+        $cursos = Cursos::find($id);
+        $cursos->curs=$request->input('cursEdit');
+        $cursos->usuari_id= auth()->user()->id;
+        $cursos->save();
+        return redirect('/dashboard/cursos');
+    }
+
     public function activate($id)
     {
         $curs = DB::table('cursos')

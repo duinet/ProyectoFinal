@@ -14,9 +14,12 @@ class PlantillaController extends Controller
         return view('welcome', compact('categories'));
     }
 
-    public function tipopagos(){
+    public function tipopagos($id){
         $categories = Categories::all();
-        $pagaments = Pagaments::where('estat', '!=', 0)->get();
+        Pagaments::disablePagaments();
+        $pagaments = Pagaments::where('estat', '!=', 0)
+                                ->where('categoria_id', '=', $id)
+                                ->get();
 
         $arrayCurs = [];
         foreach($pagaments as $pagament){
@@ -27,17 +30,9 @@ class PlantillaController extends Controller
         return view('pagos.tipopagos', compact('categories','arrayCurs', 'pagaments'));
     }
 
-    // public function pago($id){
-    //     $categories = Categories::all();
-    //     $pagament = Pagaments::Find($id);
-    //     return view('pagos.pago', compact('categories', 'pagament'));
-    // }
-
-    public function pago(){
+    public function pago($id){
         $categories = Categories::all();
-        // $pagament = Pagaments::Find($id);
-        return view('pagos.pago', compact('categories'));
+        $pagament = Pagaments::Find($id);
+        return view('pagos.pago', compact('categories', 'pagament'));
     }
-
-
 }

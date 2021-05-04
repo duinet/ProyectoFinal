@@ -30,7 +30,7 @@
                                                 <th data-priority="2" scope="col">Clau</th>
                                                 <th data-priority="2" scope="col">Ultima mod</th>
                                                 <th data-priority="1" scope="col">Estat</th>
-                                                <th data-priority="2" scope="col">####</th>
+                                                <th data-priority="2" scope="col">Accio</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -48,8 +48,47 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a href=""><i class="fas fa-edit"></i></a>
+                                                        <button id="editData{{ $compte->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $compte->id }}"><i class="fas fa-edit text-success"></i></button>
                                                     </td>
+                                                    {{-- Modal Editar Campo --}}
+                                                    <div class="modal fade" id="modalData{{ $compte->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDataLabel">Editar {{ $compte->compte }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            {{-- Form modal --}}
+                                                            <form action="/dashboard/comptes/edit/{{ $compte->id }}" method="POST">
+                                                                <div class="modal-body">
+                                                                    <div class="form-row">
+                                                                        <div class="form-group col-md-12">
+                                                                            <label for="compteEdit">Compte</label>
+                                                                            <input type="text" class="form-control" name="compteEdit" id="compte" placeholder="Nom del compte" value="{{ $compte->compte }}" required>
+                                                                        </div>
+                                                                        <div class="form-group col-md-12">
+                                                                            <label for="fucEdit">Fuc</label>
+                                                                            <input type="number" class="form-control" name="fucEdit" id="fuc" placeholder="fuc" value="{{ $compte->fuc }}" required>
+                                                                        </div>
+                                                                        <div class="form-group col-md-12">
+                                                                            <label for="clauEdit">Clau</label>
+                                                                            <input type="text" class="form-control" name="clauEdit" id="clau" placeholder="clau" value="{{ $compte->clau }}" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    @csrf
+                                                                    {{-- End form modal --}}
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btn-success">Actualitzar</button>
+                                                                </div>
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Editar Campo --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

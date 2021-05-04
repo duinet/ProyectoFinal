@@ -27,9 +27,9 @@
                                                 <th scope="col">Id</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Email</th>
-                                                <th scope="col">creado desde</th>
+                                                <th scope="col">Creat el</th>
                                                 <th data-priority="1" scope="col">Estat</th>
-                                                <th data-priority="2" scope="col">####</th>
+                                                <th data-priority="2" scope="col">Accio</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -46,8 +46,39 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a href=""><i class="fas fa-edit"></i></a>
+                                                        <button id="editData{{ $user->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $user->id }}"><i class="fas fa-edit text-success"></i></button>
                                                     </td>
+                                                    {{-- Modal Editar Campo --}}
+                                                    <div class="modal fade" id="modalData{{ $user->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDataLabel">Editar {{ $user->name }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            {{-- Form modal --}}
+                                                            <form action="/dashboard/usuaris/edit/{{ $user->id }}" method="POST">
+                                                                <div class="modal-body">
+                                                                    <div class="form-group col-md-6">
+                                                                        <label for="name">Nom</label>
+                                                                        <input type="text" class="form-control" name="nameEdit" id="nameEdit" placeholder="Nom del usuari" value="{{ $user->name }}" required>
+                                                                        <label for="email">Email</label>
+                                                                        <input type="email" class="form-control" name="emailEdit" id="emailEdit" placeholder="email del usuari" value="{{ $user->email }}" required>
+                                                                    </div>
+                                                                    @csrf
+                                                                    {{-- End form modal --}}
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btn-success">Actualitzar</button>
+                                                                </div>
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Editar Campo --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

@@ -5,12 +5,15 @@
             <h2 class="mt-3 mb-3">{{$pagament->pagament}}</h2>
             <p>Benvolgudes famílies.</p> 
             <p>Podeu fer l'ingrés de <strong>{{$pagament->preu}}€</strong> en concepte de {{$pagament->pagament}}.</p>
-            <p>{{$pagament->descripcio}}</p>
-            <p>No us oblideu d'enviar el comprovant bancari a l'adreça llibres@inscamidemar.cat i anotar el nom i cognoms de l'alumne/a al cos o a l'assumpte del missatge</p>
+            <p>{!! $pagament->descripcio !!}</p>
             <p>IMPORT: <strong>20€</strong></p>
             {{-- fijo --}}
             <p>Atentament <a href="#" class="text-decoration-none">INS Camí de Mar</a href="#" class="text-decoration-none"></p>
-            <a href="#" class="text-decoration-none">Fer pagament</a>
+            <form action="https://sis.sermepa.es/sis/realizarPago" method="post" accept-charset="utf-8" id="form_260"> 
+                <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" /> 
+                <input type="hidden" name="Ds_MerchantParameters" value="eyJEU19NRVJDSEFOVF9BTU9VTlQiOiIyMDAwMCIsIkRTX01FUkNIQU5UX09SREVSIjoiMjAwMjI3MTAyOTU0IiwiRFNfTUVSQ0hBTlRfTUVSQ0hBTlRDT0RFIjoiMDIyMzE2Nzk5MCIsIkRTX01FUkNIQU5UX0NVUlJFTkNZIjoiOTc4IiwiRFNfTUVSQ0hBTlRfVFJBTlNBQ1RJT05UWVBFIjoiMCIsIkRTX01FUkNIQU5UX1RFUk1JTkFMIjoiMSIs" />
+                <button type="submit" class="btn btn-primary">Fer pagament</button>
+            </form>
         </div>
         <div class="social mt-4">
             {{-- telegram icons --}}

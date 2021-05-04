@@ -9,6 +9,8 @@ use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use DB;
+
 class PagamentsController extends Controller
 {
     public function index()
@@ -33,6 +35,22 @@ class PagamentsController extends Controller
         $pagaments->descripcio=$request->input('descripcio');
         $pagaments->data_fi=$request->input('data_fi');
         $pagaments->estat=$request->input('estat');
+        $pagaments->usuari_id= auth()->user()->id;
+        $pagaments->save();
+        return redirect('/dashboard/pagaments');
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $pagaments = Pagaments::find($id);
+        $pagaments->categoria_id=$request->input('categoriaEdit');
+        $pagaments->compte_id=$request->input('compteEdit');
+        $pagaments->curs_id=$request->input('curs_idEdit');
+        $pagaments->curs=$request->input('cursEdit');
+        $pagaments->pagament=$request->input('pagamentEdit');
+        $pagaments->preu=$request->input('preuEdit');
+        $pagaments->descripcio=$request->input('descripcioEdit');
+        $pagaments->data_fi=$request->input('data_fiEdit');
         $pagaments->usuari_id= auth()->user()->id;
         $pagaments->save();
         return redirect('/dashboard/pagaments');

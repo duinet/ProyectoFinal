@@ -28,6 +28,22 @@ class CategoriesController extends Controller
         return redirect('/dashboard/categories');
     }
 
+    public function edit(Request $request, $id)
+    {
+        $Categories = Categories::find($id);
+        $Categories->categoria=$request->input('CategoriaEdit');
+        $Categories->usuari_id = auth()->user()->id;
+        $Categories->save();
+        return redirect('/dashboard/categories');
+    }
+
+    // public function showDataEdit($id)
+    // {
+    //     $categoriaShow = Categories::find($id);
+    //     $array = array($categoriaShow->categoria, $categoriaShow->estat);
+    //     return $array;
+    // }
+
     public function activate($id)
     {
         $categoria = DB::table('categories')

@@ -42,9 +42,9 @@
                 <a class="text-decoration-none ms-2" href="/forgot-password">
                     Has oblidat la contrasenya?
                 </a>
-                <div class="">
+                {{-- <div class="">
                     <a href="{{ url('/auth/google') }}" class="btn btn-google"><i class="fab fa-google"></i> Iniciar amb Google</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </form>

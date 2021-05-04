@@ -28,7 +28,7 @@
                                                 <th data-priority="1" scope="col">Cursos</th>
                                                 <th data-priority="2" scope="col">Ultima modificació</th>
                                                 <th data-priority="1" scope="col">Estat</th>
-                                                <th data-priority="2" scope="col">####</th>
+                                                <th data-priority="2" scope="col">Accio</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -44,8 +44,39 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <a href=""><i class="fas fa-edit"></i></a>
+                                                        <button id="editData{{ $curs->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $curs->id }}"><i class="fas fa-edit text-success"></i></button>
                                                     </td>
+                                                    {{-- Modal Editar Campo --}}
+                                                    <div class="modal fade" id="modalData{{ $curs->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDataLabel">Editar {{ $curs->curs }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            {{-- Form modal --}}
+                                                            <form action="/dashboard/cursos/edit/{{ $curs->id }}" method="POST">
+                                                                <div class="modal-body">
+                                                                    <div class="form-row">
+                                                                        <div class="form-group col-md-8">
+                                                                            <label for="curs">Curs</label>
+                                                                            <input type="text" class="form-control" id="cursEdit" name="cursEdit" placeholder="Nom del curs" value="{{ $curs->curs }}" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    @csrf
+                                                                    {{-- End form modal --}}
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btn-success">Actualitzar</button>
+                                                                </div>
+                                                            </form>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Editar Campo --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

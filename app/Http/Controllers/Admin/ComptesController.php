@@ -30,6 +30,17 @@ class ComptesController extends Controller
         return redirect('/dashboard/comptes');
     }
 
+    public function edit(Request $request, $id)
+    {
+        $comptes = Comptes::find($id);
+        $comptes->compte=$request->input('compteEdit');
+        $comptes->fuc=$request->input('fucEdit');
+        $comptes->clau=$request->input('clauEdit');
+        $comptes->usuari_id = auth()->user()->id;
+        $comptes->save();
+        return redirect('/dashboard/comptes');
+    }
+
     public function activate($id)
     {
         $compte = DB::table('comptes')
