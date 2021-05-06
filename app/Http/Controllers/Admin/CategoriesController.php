@@ -12,6 +12,7 @@ use DB;
 // To use Exports
 use App\Exports\CategoriesExport;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class CategoriesController extends Controller
 {
@@ -69,4 +70,17 @@ class CategoriesController extends Controller
     {
         return Excel::download(new CategoriesExport, 'TaulaCategories.xlsx');
     }
+
+    public function exportPdf()
+    {
+        return Excel::download(new CategoriesExport, 'TaulaCategories.pdf');
+    }
+
+    // public function exportPdf()
+    // {
+    //     $data = Categories::all();
+    //     view()->share('/dashboard/categories',$data);
+    //     $pdf = PDF::loadView('admin.pdf_view', $data);
+    //     return $pdf->download('TaulaCategories.pdf');
+    // }
 }

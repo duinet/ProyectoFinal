@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">
                             Categories
-                            <a class="btn btn-danger float-right ml-2"><i class="fas fa-file-pdf"></i></a>
+                            <a class="btn btn-danger float-right ml-2" href="/dashboard/categories/exportPdf"><i class="fas fa-file-pdf"></i></a>
                             <a class="btn btn-success float-right" href="/dashboard/categories/exportExel"><i class="fas fa-file-excel"></i></a>
                         </div>
                         <div class="card-body">
@@ -94,7 +94,6 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <p>Estas segur que vols eliminar la categoria {{ $categoria->categoria }}?</p>
-                                                                <p>En el cas de eliminar-lo, s'esborraran tots els pagaments asociats a la categoria.</p>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>

@@ -15,11 +15,10 @@ class CreatePagamentsTable extends Migration
     {
         Schema::create('pagaments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('categoria_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreignId('compte_id')->references('id')->on('comptes')->onDelete('cascade');
-            $table->foreignId('curs_id')->references('id')->on('cursos')->onDelete('cascade');
+            $table->foreignId('categoria_id')->nullable();
+            $table->foreignId('compte_id')->nullable();
+            $table->foreignId('curs_id')->nullable();
             $table->string('curs', 50);
-            // $table->text('comanda');
             $table->string('pagament',100);
             $table->text('descripcio',100);
             $table->integer('preu');
@@ -27,6 +26,10 @@ class CreatePagamentsTable extends Migration
             $table->date('data_fi');
             $table->integer('estat');
             $table->foreignId('usuari_id')->references('id')->on('users');
+
+            $table->foreign('categoria_id')->references('id')->on('categories')->onDelete('set null');
+            $table->foreign('compte_id')->references('id')->on('comptes')->onDelete('set null');
+            $table->foreign('curs_id')->references('id')->on('cursos')->onDelete('set null');
         });
     }
 

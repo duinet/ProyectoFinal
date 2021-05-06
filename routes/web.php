@@ -44,6 +44,7 @@ Route::get('/dashboard/categories/activate/{id}',[CategoriesController::class,'a
 Route::get('/dashboard/categories/desactivate/{id}',[CategoriesController::class,'desactivate'])->middleware(['auth']);
 Route::get('/dashboard/categories/delete/{id}',[CategoriesController::class,'delete'])->middleware(['auth']);
 Route::get('/dashboard/categories/exportExel',[CategoriesController::class,'exportExel'])->middleware(['auth']);
+Route::get('/dashboard/categories/exportPdf',[CategoriesController::class,'exportPdf'])->middleware(['auth']);
 
 // COMPTES
 Route::get('/dashboard/comptes',[ComptesController::class,'index'])->middleware(['auth']);

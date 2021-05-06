@@ -94,7 +94,6 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <p>Estas segur que vols eliminar el curs {{ $curs->curs }}?</p>
-                                                                <p>En el cas de eliminar-lo, s'esborraran tots els pagaments asociats al curs.</p>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
