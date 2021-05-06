@@ -15,9 +15,9 @@ class CreatePagamentsTable extends Migration
     {
         Schema::create('pagaments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('categoria_id')->references('id')->on('categories');
-            $table->foreignId('compte_id')->references('id')->on('comptes');
-            $table->foreignId('curs_id')->references('id')->on('cursos');
+            $table->foreignId('categoria_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreignId('compte_id')->references('id')->on('comptes')->onDelete('cascade');
+            $table->foreignId('curs_id')->references('id')->on('cursos')->onDelete('cascade');
             $table->string('curs', 50);
             // $table->text('comanda');
             $table->string('pagament',100);

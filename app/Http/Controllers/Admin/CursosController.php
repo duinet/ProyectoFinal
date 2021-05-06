@@ -52,4 +52,10 @@ class CursosController extends Controller
               ->update(['estat' => 0]);
         return redirect('/dashboard/cursos');
     }
+    public function delete($id)
+    {
+        $curs = Cursos::find($id);
+        $curs->delete();
+        return redirect('/dashboard/cursos');
+    }
 }

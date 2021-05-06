@@ -60,4 +60,10 @@ class CategoriesController extends Controller
         return redirect('/dashboard/categories');
     }
 
+    public function delete($id)
+    {
+        $categoria = Categories::find($id);
+        $categoria->delete();
+        return redirect('/dashboard/categories');
+    }
 }

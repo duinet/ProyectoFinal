@@ -59,6 +59,7 @@
                                                     </td>
                                                     <td>
                                                         <button id="editData{{ $pagament->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $pagament->id }}"><i class="fas fa-edit text-success"></i></button>
+                                                        <button id="delData{{ $pagament->id }}" class="btn" data-toggle="modal" data-target="#modalDel{{ $pagament->id }}"><i class="fas fa-trash text-danger"></i></button>
                                                     </td>
                                                     {{-- Modal Editar Campo --}}
                                                     <div class="modal fade" id="modalData{{ $pagament->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
@@ -133,6 +134,27 @@
                                                         </div>
                                                     </div>
                                                     {{-- End Modal Editar Campo --}}
+                                                    {{-- Modal Delete --}}
+                                                    <div class="modal fade" id="modalDel{{ $pagament->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDelLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDelLabel">Eliminar {{ $pagament->pagament }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Estas segur que vols eliminar el pagament {{ $pagament->pagament }}?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                <a id="delpagament" href="/dashboard/pagaments/delete/{{$pagament->id}}" class="btn btn-success">Eliminar</a>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Delete --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>

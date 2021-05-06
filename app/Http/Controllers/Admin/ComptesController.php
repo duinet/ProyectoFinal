@@ -56,5 +56,11 @@ class ComptesController extends Controller
               ->update(['estat' => 0]);
         return redirect('/dashboard/comptes');
     }
+    public function delete($id)
+    {
+        $compte = Comptes::find($id);
+        $compte->delete();
+        return redirect('/dashboard/comptes');
+    }
 
 }

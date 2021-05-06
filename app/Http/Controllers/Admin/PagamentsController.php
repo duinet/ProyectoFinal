@@ -72,4 +72,10 @@ class PagamentsController extends Controller
         return redirect('/dashboard/pagaments');
     }
 
+    public function delete($id)
+    {
+        $pagament = Pagaments::find($id);
+        $pagament->delete();
+        return redirect('/dashboard/pagaments');
+    }
 }

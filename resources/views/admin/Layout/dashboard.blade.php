@@ -39,6 +39,12 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
+                        <li class="nav-link d-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                            <a><i class="fas fa-file-pdf"></i></a>
+                        </li>
+                        <li class="nav-link d-none d-md-none d-lg-block d-xl-block d-xxl-block">
+                            <a><i class="fas fa-file-excel"></i></a>
+                        </li>
                     <li class="nav-item">
                         <a class="nav-link d-none d-md-none d-lg-block d-xl-block d-xxl-block" data-widget="fullscreen" href="#" role="button">
                             <i class="fas fa-expand-arrows-alt"></i>
@@ -153,5 +159,8 @@
         {{--LocalDate--}}
             <script src="{{ asset('assets/dashboard/dist/js/localDate.js') }}"></script>
         @endif
+
+        {{-- SweetAlert2 --}}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
 </html>

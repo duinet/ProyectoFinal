@@ -6,7 +6,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Categories</div>
+                        <div class="card-header">
+                            Categories
+                            <a class="btn btn-danger float-right ml-2"><i class="fas fa-file-pdf"></i></a>
+                            <a class="btn btn-success float-right"><i class="fas fa-file-excel"></i></a>
+                        </div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
@@ -17,7 +21,7 @@
                                 <li class="nav-item" role="presentation">
                                   <a class="nav-link" id="afegirRegistre-tab" data-toggle="tab" href="#afegirRegistre" role="tab" aria-controls="afegirRegistre" aria-selected="false">Afegir Registre</a>
                                 </li>
-                              </ul>
+                            </ul>
                               <div class="tab-content my-4" id="myTabContent">
                                 {{-- Content tabla --}}
                                 <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
@@ -45,6 +49,7 @@
                                                     </td>
                                                     <td>
                                                         <button id="editData{{ $categoria->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $categoria->id }}"><i class="fas fa-edit text-success"></i></button>
+                                                        <button id="delData{{ $categoria->id }}" class="btn" data-toggle="modal" data-target="#modalDel{{ $categoria->id }}"><i class="fas fa-trash text-danger"></i></button>
                                                     </td>
                                                     {{-- Modal Editar Campo --}}
                                                     <div class="modal fade" id="modalData{{ $categoria->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
@@ -77,6 +82,28 @@
                                                         </div>
                                                     </div>
                                                     {{-- End Modal Editar Campo --}}
+                                                    {{-- Modal Delete --}}
+                                                    <div class="modal fade" id="modalDel{{ $categoria->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDelLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDelLabel">Eliminar {{ $categoria->categoria }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Estas segur que vols eliminar la categoria {{ $categoria->categoria }}?</p>
+                                                                <p>En el cas de eliminar-lo, s'esborraran tots els pagaments asociats a la categoria.</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                <a id="delCategoria" href="/dashboard/categories/delete/{{$categoria->id}}" class="btn btn-success">Eliminar</a>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Delete --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -104,7 +131,7 @@
                                     </form>
                                 </div>
                                 {{-- End content add value --}}
-                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>

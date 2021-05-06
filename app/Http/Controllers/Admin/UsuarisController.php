@@ -55,4 +55,10 @@ class UsuarisController extends Controller
               ->update(['estat' => 0]);
         return redirect('/dashboard/usuaris');
     }
+    public function delete($id)
+    {
+        $usuari = User::find($id);
+        $usuari->delete();
+        return redirect('/dashboard/usuaris');
+    }
 }

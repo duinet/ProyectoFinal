@@ -6,7 +6,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Comptes</div>
+                        <div class="card-header">
+                            Comptes
+                            <a class="btn btn-danger float-right ml-2"><i class="fas fa-file-pdf"></i></a>
+                            <a class="btn btn-success float-right"><i class="fas fa-file-excel"></i></a>
+                        </div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
@@ -49,6 +53,7 @@
                                                     </td>
                                                     <td>
                                                         <button id="editData{{ $compte->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $compte->id }}"><i class="fas fa-edit text-success"></i></button>
+                                                        <button id="delData{{ $compte->id }}" class="btn" data-toggle="modal" data-target="#modalDel{{ $compte->id }}"><i class="fas fa-trash text-danger"></i></button>
                                                     </td>
                                                     {{-- Modal Editar Campo --}}
                                                     <div class="modal fade" id="modalData{{ $compte->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
@@ -89,6 +94,28 @@
                                                         </div>
                                                     </div>
                                                     {{-- End Modal Editar Campo --}}
+                                                    {{-- Modal Delete --}}
+                                                    <div class="modal fade" id="modalDel{{ $compte->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDelLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDelLabel">Eliminar {{ $compte->compte }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Estas segur que vols eliminar el compte {{ $compte->compte }}?</p>
+                                                                <p>En el cas de eliminar-lo, s'esborraran tots els pagaments asociats al compte.</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                <a id="delcompte" href="/dashboard/comptes/delete/{{$compte->id}}" class="btn btn-success">Eliminar</a>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Delete --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
