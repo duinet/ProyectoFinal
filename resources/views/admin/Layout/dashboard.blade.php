@@ -149,10 +149,8 @@
         {{-- ckeditor --}}
         <script src="{{ asset('assets/vendors/ckeditor/ckeditor.js') }}"></script>
         <script src="{{ asset('assets/dashboard/dist/js/custom.js') }}"></script>
-        @if(Request::url() === 'http://127.0.0.1:8000/dashboard') 
-        {{--LocalDate--}}
-            <script src="{{ asset('assets/dashboard/dist/js/localDate.js') }}"></script>
-        @endif
 
+        {{--LocalDate--}}
+        <script src="{{ asset('assets/dashboard/dist/js/localDate.js') }}"></script>
     </body>
 </html>

@@ -73,6 +73,9 @@ class CategoriesController extends Controller
 
     public function exportPdf()
     {
-        return Excel::download(new CategoriesExport, 'TaulaCategories.pdf');
+        $data = Categories::all();
+        view()->share('categories',$data);
+        $pdf = PDF::loadView('admin.exportspdf.categories_pdf', $data);
+        return $pdf->download('TaulaCategories.pdf');
     }
 }

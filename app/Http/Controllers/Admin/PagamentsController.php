@@ -14,6 +14,8 @@ use DB;
 use App\Exports\PagamentsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+use PDF;
+
 class PagamentsController extends Controller
 {
     public function index()
@@ -89,6 +91,9 @@ class PagamentsController extends Controller
 
     public function exportPdf()
     {
-        return Excel::download(new PagamentsExport, 'TaulaPagaments.pdf');
+        $data = Pagaments::all();
+        view()->share('pagaments',$data);
+        $pdf = PDF::loadView('admin.exportspdf.pagaments_pdf', $data);
+        return $pdf->download('TaulaPagaments.pdf');
     }
 }

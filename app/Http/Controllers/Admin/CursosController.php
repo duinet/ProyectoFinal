@@ -13,6 +13,8 @@ use DB;
 use App\Exports\CursosExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+use PDF;
+
 class CursosController extends Controller
 {
     public function index()
@@ -71,6 +73,9 @@ class CursosController extends Controller
 
     public function exportPdf()
     {
-        return Excel::download(new CursosExport, 'TaulaCursos.pdf');
+        $data = Cursos::all();
+        view()->share('cursos',$data);
+        $pdf = PDF::loadView('admin.exportspdf.cursos_pdf', $data);
+        return $pdf->download('TaulaCursos.pdf');
     }
 }

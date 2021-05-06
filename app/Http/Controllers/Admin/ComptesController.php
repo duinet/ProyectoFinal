@@ -11,6 +11,8 @@ use DB;
 use App\Exports\ComptesExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+use PDF;
+
 class ComptesController extends Controller
 {
     public function index()
@@ -73,7 +75,10 @@ class ComptesController extends Controller
 
     public function exportPdf()
     {
-        return Excel::download(new ComptesExport, 'TaulaComptes.pdf');
+        $data = Comptes::all();
+        view()->share('comptes',$data);
+        $pdf = PDF::loadView('admin.exportspdf.comptes_pdf', $data);
+        return $pdf->download('TaulaComptes.pdf');
     }
 
 }
