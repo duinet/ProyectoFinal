@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 
 use DB;
 
+use App\Exports\ComptesExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class ComptesController extends Controller
 {
     public function index()
@@ -61,6 +64,11 @@ class ComptesController extends Controller
         $compte = Comptes::find($id);
         $compte->delete();
         return redirect('/dashboard/comptes');
+    }
+
+    public function exportExel()
+    {
+        return Excel::download(new ComptesExport, 'TaulaComptes.xlsx');
     }
 
 }

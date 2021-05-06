@@ -6,7 +6,12 @@ use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+// To use DB 
 use DB;
+
+// To use Exports
+use App\Exports\CategoriesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CategoriesController extends Controller
 {
@@ -37,13 +42,6 @@ class CategoriesController extends Controller
         return redirect('/dashboard/categories');
     }
 
-    // public function showDataEdit($id)
-    // {
-    //     $categoriaShow = Categories::find($id);
-    //     $array = array($categoriaShow->categoria, $categoriaShow->estat);
-    //     return $array;
-    // }
-
     public function activate($id)
     {
         $categoria = DB::table('categories')
@@ -65,5 +63,10 @@ class CategoriesController extends Controller
         $categoria = Categories::find($id);
         $categoria->delete();
         return redirect('/dashboard/categories');
+    }
+
+    public function exportExel()
+    {
+        return Excel::download(new CategoriesExport, 'TaulaCategories.xlsx');
     }
 }

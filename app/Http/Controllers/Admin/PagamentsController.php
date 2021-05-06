@@ -11,6 +11,9 @@ use App\Http\Controllers\Controller;
 
 use DB;
 
+use App\Exports\PagamentsExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class PagamentsController extends Controller
 {
     public function index()
@@ -77,5 +80,10 @@ class PagamentsController extends Controller
         $pagament = Pagaments::find($id);
         $pagament->delete();
         return redirect('/dashboard/pagaments');
+    }
+
+    public function exportExel()
+    {
+        return Excel::download(new PagamentsExport, 'TaulaPagaments.xlsx');
     }
 }

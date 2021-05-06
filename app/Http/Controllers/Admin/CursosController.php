@@ -6,7 +6,12 @@ use App\Models\Cursos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+// To use DB 
 use DB;
+
+// To use Exports
+use App\Exports\CursosExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CursosController extends Controller
 {
@@ -57,5 +62,10 @@ class CursosController extends Controller
         $curs = Cursos::find($id);
         $curs->delete();
         return redirect('/dashboard/cursos');
+    }
+
+    public function exportExel()
+    {
+        return Excel::download(new CursosExport, 'TaulaCursos.xlsx');
     }
 }

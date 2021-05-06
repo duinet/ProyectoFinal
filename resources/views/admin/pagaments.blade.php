@@ -6,7 +6,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">Pagaments</div>
+                        <div class="card-header">
+                            Pagaments
+                            <a class="btn btn-danger float-right ml-2"><i class="fas fa-file-pdf"></i></a>
+                            <a class="btn btn-success float-right" href="/dashboard/pagaments/exportExel"><i class="fas fa-file-excel"></i></a>
+                        </div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
