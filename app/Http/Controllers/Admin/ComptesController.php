@@ -71,4 +71,9 @@ class ComptesController extends Controller
         return Excel::download(new ComptesExport, 'TaulaComptes.xlsx');
     }
 
+    public function exportPdf()
+    {
+        return Excel::download(new ComptesExport, 'TaulaComptes.pdf');
+    }
+
 }

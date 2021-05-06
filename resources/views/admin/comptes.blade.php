@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">
                             Comptes
-                            <a class="btn btn-danger float-right ml-2"><i class="fas fa-file-pdf"></i></a>
+                            <a class="btn btn-danger float-right ml-2" href="/dashboard/comptes/exportPdf"><i class="fas fa-file-pdf"></i></a>
                             <a class="btn btn-success float-right" href="/dashboard/comptes/exportExel"><i class="fas fa-file-excel"></i></a>
                         </div>
                         <div class="card-body">

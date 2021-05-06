@@ -68,4 +68,9 @@ class CursosController extends Controller
     {
         return Excel::download(new CursosExport, 'TaulaCursos.xlsx');
     }
+
+    public function exportPdf()
+    {
+        return Excel::download(new CursosExport, 'TaulaCursos.pdf');
+    }
 }

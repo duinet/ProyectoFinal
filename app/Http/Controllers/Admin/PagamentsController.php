@@ -86,4 +86,9 @@ class PagamentsController extends Controller
     {
         return Excel::download(new PagamentsExport, 'TaulaPagaments.xlsx');
     }
+
+    public function exportPdf()
+    {
+        return Excel::download(new PagamentsExport, 'TaulaPagaments.pdf');
+    }
 }
