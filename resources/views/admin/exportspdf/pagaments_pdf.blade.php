@@ -17,27 +17,22 @@
                     <th scope="col">Curs</th>
                     <th scope="col">Any</th>
                     <th scope="col">Pagament</th>
-                    <th scope="col">Descripció</th>
                     <th scope="col">Preu</th>
                     <th scope="col">Data_fi</th>
-                    <th scope="col">Ultima mod</th>
-                    <th data-priority="1" scope="col" >Estat</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($pagaments as $data)
                     <tr>
+                        
                         <th scope="row" id="ampliar">{{$data->id}}</th>
                         <td>{{$data->categoria_id}}</td>
                         <td>{{$data->compte_id}}</td>
                         <td>{{$data->curs}}</td>
                         <td>{{$data->curs_id}}</td>
                         <td>{{$data->pagament}}</td>
-                        <td id="camposL">{!! $data->descripcio !!}</td>
                         <td>{{$data->preu}}</td>
                         <td>{{$data->data_fi}}</td>
-                        <td>{{$data->updated_at->diffForHumans()}}</td>
-                        <td>{{$data->estat}}</td>
                     </tr>
                 @endforeach
             </tbody>
