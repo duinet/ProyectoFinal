@@ -28,8 +28,8 @@
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Creat el</th>
-                                                <th data-priority="1" scope="col">Estat</th>
-                                                <th data-priority="2" scope="col">Accio</th>
+                                                <th data-priority="1" class="no-sort" scope="col">Estat</th>
+                                                <th data-priority="2" class="no-sort" scope="col">Accio</th>
                                             </tr>
                                         </thead>
                                         <tbody>

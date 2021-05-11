@@ -18,13 +18,11 @@
         
         {{-- responsive cdn datatables --}}
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
-
-        
     </head>
 
     <body class="hold-transition sidebar-mini layout-fixed">
         <div class="wrapper">
-            @if(Request::url() === 'http://127.0.0.1:8000/dashboard') 
+            @if(Request::url() === url('/dashboard')) 
                 <div class="preloader flex-column justify-content-center align-items-center">
                     <img class="animation__shake" src="https://pagaments.inscamidemar.cat/images/logo_2.png" alt="Cami de mar logo">
                 </div>
@@ -114,7 +112,7 @@
             </div>
 
             <footer class="main-footer">
-                <strong><a href="www.inscamidemar.cat" class="text-decoration-none">INS Camí de Mar</a> &copy; 2021 Samuel & Jaime.</strong>
+                <strong><a href="https://www.inscamidemar.cat" class="text-decoration-none">INS Camí de Mar</a> &copy; 2021 Samuel & Jaime.</strong>
                 Drets reservats
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.2
@@ -122,6 +120,7 @@
             </footer>
             <aside class="control-sidebar control-sidebar-dark"></aside>
         </div>
+
         {{-- Scripts --}}
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -136,21 +135,24 @@
         </script>
         {{-- <script src="{{ asset('assets/dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script> --}}
         <script src="{{ asset('assets/dashboard/dist/js/adminlte.js') }}"></script>
-        
-        {{-- scripts datatables --}}
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
-        {{-- scripts datatables responsive tables --}}
-        <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+        @if(Request::url() !== url('/dashboard'))
+            {{-- scripts datatables --}}
+            <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 
-        {{-- ckeditor --}}
-        <script src="{{ asset('assets/vendors/ckeditor/ckeditor.js') }}"></script>
-        <script src="{{ asset('assets/dashboard/dist/js/custom.js') }}"></script>
+            {{-- scripts datatables responsive tables --}}
+            <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+            <script src="{{ asset('assets/dashboard/dist/js/custom.js') }}"></script>
+
+            {{-- ckeditor --}}
+            <script src="{{ asset('assets/vendors/ckeditor/ckeditor.js') }}"></script>
+        @endif
 
         {{--LocalDate--}}
-        <script src="{{ asset('assets/dashboard/dist/js/localDate.js') }}"></script>
+        @if(Request::url() === url('/dashboard'))
+            <script src="{{ asset('assets/dashboard/dist/js/localDate.js') }}"></script>
+        @endif
     </body>
 </html>

@@ -5,7 +5,7 @@
     <form method="POST" action="" class="pt-4 ms-5">
         @csrf
         <!-- Email Address -->
-        <div class="col-4 pt-3">
+        <div class="col-9 col-sm-9 col-md-8 col-lg-8 col-xl-8 pt-3">
             <x-label for="email" :value="__('Email')" />
 
             <x-input id="email" class="block mt-1 form-control" type="email" name="email" :value="old('email')" required autofocus />

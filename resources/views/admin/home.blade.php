@@ -17,7 +17,8 @@
                                     </div>
                                 </div>
                                 <div class="alert alert-warning mt-4" role="alert">
-                                    <span class="h5">Ultima conexiò: </span><p id="lastcon"></p>
+                                    <span class="h5">Ultima conexiò: </span>
+                                    <p id="lastcon" class="mt-2"></p>
                                 </div>
                             </div>
                         </div>

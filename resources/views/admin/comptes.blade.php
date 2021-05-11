@@ -33,8 +33,8 @@
                                                 <th data-priority="2" scope="col">Fuc</th>
                                                 <th data-priority="2" scope="col">Clau</th>
                                                 <th data-priority="2" scope="col">Ultima mod</th>
-                                                <th data-priority="1" scope="col">Estat</th>
-                                                <th data-priority="2" scope="col">Accio</th>
+                                                <th data-priority="1" class="no-sort" scope="col">Estat</th>
+                                                <th data-priority="2" class="no-sort" scope="col">Accio</th>
                                             </tr>
                                         </thead>
                                         <tbody>
