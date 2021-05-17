@@ -2,17 +2,32 @@ $(document).ready(function(){
     // Ajax que se encarga de habilitar y deshabilitar los datos de los campos
     $("input:checkbox").change(function() { 
         url = window.location.pathname;
-        if($(this).is(":checked")) {
-            $("input:checkbox").attr(checked="yes");
-            $.ajax({
-                url: url+'/activate/' + $(this).attr("name"),
-                type: 'GET',
-            });
-        } else {
-            $.ajax({
-                url: url+'/desactivate/' + $(this).attr("name"),
-                type: 'GET',
-            });
+        if($(this).attr("id-checkbox") == "estat"){
+            if($(this).is(":checked")) {
+                $("input:checkbox").attr(checked="yes");
+                $.ajax({
+                    url: url+'/activate/' + $(this).attr("name"),
+                    type: 'GET',
+                });
+            } else {
+                $.ajax({
+                    url: url+'/desactivate/' + $(this).attr("name"),
+                    type: 'GET',
+                });
+            }
+        }else{
+            if($(this).is(":checked")) {
+                $("input:checkbox").attr(checked="yes");
+                $.ajax({
+                    url: url+'/rolSudo/' + $(this).attr("name"),
+                    type: 'GET',
+                });
+            } else {
+                $.ajax({
+                    url: url+'/rolNoSudo/' + $(this).attr("name"),
+                    type: 'GET',
+                });
+            }
         }
     });
 
@@ -34,8 +49,6 @@ $(document).ready(function(){
     $campoL = $('#camposL').text();
     if($campoL.length > 50){
         var text = $campoL.substring(0, 30);
-        console.log(text);
         document.querySelector('#camposL').innerHTML = text;
-        console.log($('#camposL').text());
     }
 }); 

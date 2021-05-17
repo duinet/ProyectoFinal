@@ -18,6 +18,7 @@
         
         {{-- responsive cdn datatables --}}
         <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+
     </head>
 
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -44,7 +45,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ $user->name }}
+                            {{ auth()->user()->name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <form method="POST" action="{{ route('logout') }}" id="logout">
@@ -97,12 +98,14 @@
                                     <p>Pagaments</p>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/dashboard/usuaris" class="nav-link">
-                                    <i class="fas fa-user mr-3 ml-2"></i>
-                                    <p>Usuaris</p>
-                                </a>
-                            </li>
+                            @if(auth()->user()->rol == 1)
+                                <li class="nav-item">
+                                    <a href="/dashboard/usuaris" class="nav-link">
+                                        <i class="fas fa-user mr-3 ml-2"></i>
+                                        <p>Usuaris</p>
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
@@ -148,6 +151,7 @@
 
             {{-- ckeditor --}}
             <script src="{{ asset('assets/vendors/ckeditor/ckeditor.js') }}"></script>
+
         @endif
 
         {{--LocalDate--}}

@@ -22,7 +22,7 @@
                                   <a class="nav-link" id="afegirRegistre-tab" data-toggle="tab" href="#afegirRegistre" role="tab" aria-controls="afegirRegistre" aria-selected="false">Afegir Registre</a>
                                 </li>
                               </ul>
-                              <div class="tab-content my-4" id="myTabContent">
+                            <div class="tab-content my-4" id="myTabContent">
                                 {{-- Content tabla --}}
                                 <div class="tab-pane fade show active" id="table" role="tabpanel" aria-labelledby="table-tab">
                                     <table id="example" class="table table-striped table-bordered dt-responsive nowrap">
@@ -150,7 +150,7 @@
                                     </form>
                                 </div>
                                 {{-- End content add value --}}
-                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>

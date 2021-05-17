@@ -29,6 +29,7 @@
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Creat el</th>
                                                 <th data-priority="1" class="no-sort" scope="col">Estat</th>
+                                                <th data-priority="1" class="no-sort" scope="col">Rol</th>
                                                 <th data-priority="2" class="no-sort" scope="col">Accio</th>
                                             </tr>
                                         </thead>
@@ -41,12 +42,19 @@
                                                     <td>{{$user->created_at}}</td>
                                                     <td>
                                                         <div class="custom-control custom-switch">
-                                                            <input type="checkbox" @if($user->estat == true)checked @endif class="custom-control-input" name="{{ $user->id }}" id="estatCategories{{ $user->id }}">
+                                                            <input type="checkbox" @if($user->estat == true)checked @endif class="custom-control-input" name="{{ $user->id }}" id="estatCategories{{ $user->id }}" id-checkbox="estat">
                                                             <label class="custom-control-label" for="estatCategories{{ $user->id }}"></label>
                                                         </div>
                                                     </td>
                                                     <td>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" @if($user->rol == true)checked @endif class="custom-control-input" name="{{ $user->id }}" id="estatRol{{ $user->id }}" id-checkbox="rol">
+                                                            <label class="custom-control-label" for="estatRol{{ $user->id }}"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
                                                         <button id="editData{{ $user->id }}" class="btn" data-toggle="modal" data-target="#modalData{{ $user->id }}"><i class="fas fa-edit text-success"></i></button>
+                                                        <button id="delData{{ $user->id }}" class="btn" data-toggle="modal" data-target="#modalDel{{ $user->id }}"><i class="fas fa-trash text-danger"></i></button>
                                                     </td>
                                                     {{-- Modal Editar Campo --}}
                                                     <div class="modal fade" id="modalData{{ $user->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDataLabel" aria-hidden="true">
@@ -79,6 +87,27 @@
                                                         </div>
                                                     </div>
                                                     {{-- End Modal Editar Campo --}}
+                                                    {{-- Modal Delete --}}
+                                                    <div class="modal fade" id="modalDel{{ $user->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalDelLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                          <div class="modal-content">
+                                                            <div class="modal-header">
+                                                              <h5 class="modal-title" id="modalDelLabel">Eliminar {{ $user->name }}</h5>
+                                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                              </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Estas segur que vols eliminar l'usuari {{ $user->name }}?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                                                <a id="delpagament" href="/dashboard/usuaris/delete/{{$user->id}}" class="btn btn-success">Eliminar</a>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- End Modal Delete --}}
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -92,7 +121,12 @@
                                             <label for="name">Nom</label>
                                             <input type="text" class="form-control" name="name" id="name" placeholder="Nom del usuari" required>
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="email del usuari" required>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="email" id="email" placeholder="email del usuari" required>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">@xtec.cat</div>
+                                                </div>
+                                            </div>
                                             <label for="password">Contraseña</label>
                                             <input type="password" class="form-control" name="password" id="password" placeholder="contraseña" required>
                                             <label for="Estat">Estat</label>

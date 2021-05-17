@@ -32,7 +32,6 @@ Route::get('/tipopagos/{id}', [PlantillaController::class, 'tipopagos']);
 
 // PAGO
 Route::get('/tipopagos/pago/{id}', [PlantillaController::class,'pago']);
-//Route::get('/tipopagos/pago', [PlantillaController::class,'pago']);
 
 // dashboard routes
 
@@ -77,11 +76,19 @@ Route::get('/dashboard/cursos/exportExel',[cursosController::class,'exportExel']
 Route::get('/dashboard/cursos/exportPdf',[cursosController::class,'exportPdf'])->middleware(['auth']);
 
 // USUARIS
-Route::get('/dashboard/usuaris',[UsuarisController::class,'index'])->middleware(['auth']);
-Route::post('/dashboard/usuaris/add',[UsuarisController::class,'add'])->middleware(['auth']);
-Route::post('/dashboard/usuaris/edit/{id}',[UsuarisController::class,'edit'])->middleware(['auth']);
-Route::get('/dashboard/usuaris/activate/{id}',[UsuarisController::class,'activate'])->middleware(['auth']);
-Route::get('/dashboard/usuaris/desactivate/{id}',[UsuarisController::class,'desactivate'])->middleware(['auth']);
+Route::get('/dashboard/usuaris',[UsuarisController::class,'index'])->middleware(['auth'])->middleware(['roluser']);
+Route::post('/dashboard/usuaris/add',[UsuarisController::class,'add'])->middleware(['auth'])->middleware(['roluser']);
+Route::post('/dashboard/usuaris/edit/{id}',[UsuarisController::class,'edit'])->middleware(['auth'])->middleware(['roluser']);
+Route::get('/dashboard/usuaris/activate/{id}',[UsuarisController::class,'activate'])->middleware(['auth'])->middleware(['roluser']);
+Route::get('/dashboard/usuaris/desactivate/{id}',[UsuarisController::class,'desactivate'])->middleware(['auth'])->middleware(['roluser']);
+Route::get('/dashboard/usuaris/rolSudo/{id}',[UsuarisController::class,'rolSudo'])->middleware(['auth'])->middleware(['roluser']);
+Route::get('/dashboard/usuaris/rolNoSudo/{id}',[UsuarisController::class,'rolNoSudo'])->middleware(['auth'])->middleware(['roluser']);
+Route::get('/dashboard/usuaris/delete/{id}',[UsuarisController::class,'delete'])->middleware(['auth'])->middleware(['roluser']);
+
+// Denegacion /dashboard/usuaris
+Route::get('/errorRolUser', ['as' => 'errorRolUser', function() {
+    return view('Error.error404');
+}]);
 
 // HOME
 Route::get('/dashboard',[HomeDashboardController::class,'index'])->middleware(['auth']);
@@ -95,6 +102,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/{provider}', [AuthenticatedSessionController::class, 'redirectToProvider']);
     Route::get('/{provider}/callback', [AuthenticatedSessionController::class, 'handleProviderCallback']);
 });
+
 Route::get('/reload-captcha', [AuthenticatedSessionController::class, 'reloadCaptcha']);
 
 

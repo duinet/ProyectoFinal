@@ -29,6 +29,7 @@ class AuthenticatedSessionController extends Controller
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+
     public function store(LoginRequest $request)
     {
         $captcha = $this->captchaVerify(app('request')->input('h-captcha-response')??'');
@@ -36,12 +37,19 @@ class AuthenticatedSessionController extends Controller
         if($captcha === true){
             $request->authenticate();
             $request->session()->regenerate();
-            return redirect()->intended(RouteServiceProvider::HOME);
+            if (auth()->user()->estat == 0) {
+                Auth::logout();
+                return redirect()->back()->withErrors(["El usuari no te permisos per accedir-hi al dashboard, parli amb l'administrador"]);
+            }else{
+                return redirect()->intended(RouteServiceProvider::HOME);
+            }
         }else{
             return redirect()->back()->withErrors(["Has d'omplir el Captcha"]);
         }
 
     }
+
+
 
     /**
      * Destroy an authenticated session.

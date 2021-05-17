@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-use DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarisController extends Controller
 {
@@ -22,10 +23,10 @@ class UsuarisController extends Controller
     {
         $user = new User();
         $user->name=$request->input('name');
-        $user->email=$request->input('email');
-        $user->password=$request->input('password');
-        //$user->usuari_id = auth()->user()->id;
+        $user->email=$request->input('email').'@inscamidemar.cat';
+        $user->password= Hash::make($request->input('password'));
         $user->estat=$request->input('estat');
+        $user->rol=0;
 
         $user->save();
         return redirect('/dashboard/usuaris');
@@ -55,6 +56,23 @@ class UsuarisController extends Controller
               ->update(['estat' => 0]);
         return redirect('/dashboard/usuaris');
     }
+
+    public function rolSudo($id)
+    {
+        $usuari = DB::table('users')
+              ->where('id', $id)
+              ->update(['rol' => 1]);
+        return redirect('/dashboard/usuaris');
+    }
+
+    public function rolNoSudo($id)
+    {
+        $usuari = DB::table('users')
+              ->where('id', $id)
+              ->update(['rol' => 0]);
+        return redirect('/dashboard/usuaris');
+    }
+
     public function delete($id)
     {
         $usuari = User::find($id);
