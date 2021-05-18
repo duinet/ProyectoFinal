@@ -23,7 +23,7 @@ class UsuarisController extends Controller
     {
         $user = new User();
         $user->name=$request->input('name');
-        $user->email=$request->input('email').'@inscamidemar.cat';
+        $user->email=$request->input('email');
         $user->password= Hash::make($request->input('password'));
         $user->estat=$request->input('estat');
         $user->rol=0;
