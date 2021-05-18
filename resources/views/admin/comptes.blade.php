@@ -12,6 +12,11 @@
                             <a class="btn btn-success float-right" href="/dashboard/comptes/exportExel"><i class="fas fa-file-excel"></i></a>
                         </div>
                         <div class="card-body">
+                            @if($errors->any())
+                                <div class="">
+                                    <p class="alert alert-danger">{{$errors->first()}}</p>
+                                </div>
+                            @endif
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 {{-- Go content tabla --}}
                                 <li class="nav-item" role="presentation">

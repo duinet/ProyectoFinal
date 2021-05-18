@@ -4,9 +4,9 @@
     <form method="POST" action="{{ route('login') }}" class="pt-4 ms-3 ms-sm-3 ms-md-4 ms-lg-5 ms-xl-5">
         @csrf
         @if($errors->any())
-        <div class="col-4">
-            <p class="alert alert-danger">{{$errors->first()}}</p>
-        </div>
+            <div class="col-4">
+                <p class="alert alert-danger">{{$errors->first()}}</p>
+            </div>
         @endif
         <!-- Email Address -->
         <div class="col-9 col-sm-9 col-md-8 col-lg-4 col-xl-4">
