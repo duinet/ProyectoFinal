@@ -121,12 +121,7 @@
                                             <label for="name">Nom</label>
                                             <input type="text" class="form-control" name="name" id="name" placeholder="Nom del usuari" required>
                                             <label for="email">Email</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="email" id="email" placeholder="email del usuari" required>
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">@xtec.cat</div>
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control" name="email" id="email" placeholder="email del usuari" required>
                                             <label for="password">Contraseña</label>
                                             <input type="password" class="form-control" name="password" id="password" placeholder="contraseña" required>
                                             <label for="Estat">Estat</label>

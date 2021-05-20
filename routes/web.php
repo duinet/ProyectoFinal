@@ -13,7 +13,7 @@ use App\Http\Controllers\Pagos\TipoPagosController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\HomeDashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
+use App\Http\Controllers\Auth\SocialiteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -97,11 +97,8 @@ Route::get('/dashboard',[HomeDashboardController::class,'index'])->middleware(['
 require __DIR__.'/auth.php';
 
 // Socialite
-
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('/{provider}', [AuthenticatedSessionController::class, 'redirectToProvider']);
-    Route::get('/{provider}/callback', [AuthenticatedSessionController::class, 'handleProviderCallback']);
-});
+Route::get('google', [SocialiteController::class, 'googleRedirect'])->name('auth/google');
+Route::get('/auth/google-callback', [SocialiteController::class, 'loginWithGoogle']);
 
 Route::get('/reload-captcha', [AuthenticatedSessionController::class, 'reloadCaptcha']);
 

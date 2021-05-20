@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->integer('estat');
             $table->integer('rol');
+            $table->string('google_id')->nullable();
         });
     }
 

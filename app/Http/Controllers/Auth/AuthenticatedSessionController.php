@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Categories;
+use App\Models\User;
+use Hash;
+use Str;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -66,54 +69,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
-    }
-
-    /**
-     * SOCIALITE
-     * Redirect the user to the provider authentication page.
-     *
-     * @return Response
-     */
-    public function redirectToProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
-    }
-
-    /**
-     * SOCIALITE
-     * Obtain the user information from provider and log in the user.
-     *
-     * @return Response
-     */
-    public function handleProviderCallback($provider)
-    {
-        try{
-            $user = Socialite::driver($provider)->user();
-        } catch (\GuzzleHttp\Exception\ClientException $e) {
-            abort(403, 'Unauthorized action.');
-            return redirect()->to('/');
-        }
-        $attributes = [
-            'provider' => $provider,
-            'provider_id' => $user->getId(),
-            'name' => $user->getName(),
-            'email' => $user->getEmail(),
-            'password' => isset($attributes['password']) ? $attributes['password'] : bcrypt(str_random(16))
- 
-        ];
- 
-        $user = User::where('provider_id', $user->getId() )->first();
-        if (!$user){
-            try{
-                $user=  User::create($attributes);
-            }catch (ValidationException $e){
-              return redirect()->to('/auth/login');
-            }
-        }
- 
-        $this->guard()->login($user);
-       return redirect()->to($this->redirectTo);
- 
     }
 
     public function captchaVerify($requestCaptcha)
