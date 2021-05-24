@@ -46,11 +46,12 @@
                     <a href="{{ url('/auth/google') }}" class="btn btn-google"><i class="fab fa-google"></i> Iniciar amb Google</a>
                 </div> --}}
                 <!-- Google Login Button -->
-                <a href="{{ route('auth/google') }}" class="btn btn-danger">
-                    {{ __('Login with Google') }}
-                </a>
             </div>
         </div>
+
+        <a href="{{ route('auth/google') }}" class="btn btn-outline-danger mb-4">
+            <i class="fab fa-google"></i> {{ __('Iniciar amb Google') }}
+        </a>
     </form>
 </div>
 @endsection

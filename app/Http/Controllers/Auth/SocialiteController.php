@@ -21,7 +21,7 @@ class SocialiteController extends Controller
     {
         try {
             $googleUser = Socialite::driver('google')->stateless()->user();
-            $user = User::where('google_id', $googleUser->id)->first();
+            $user = User::where('email', $googleUser->email)->first();
             if($user){
                 if($user->estat != 1){
                     return redirect('/login')->withErrors(["Espera que l'administrador t'accepti."]);
