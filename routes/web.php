@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\HomeDashboardController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\Admin\PersonasPagoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,7 @@ Route::get('/tipopagos/{id}', [PlantillaController::class, 'tipopagos']);
 
 // PAGO
 Route::get('/tipopagos/pago/{id}', [PlantillaController::class,'pago']);
+Route::post('/tipopagos/pago/add', [PlantillaController::class,'personapago']);
 
 // dashboard routes
 
@@ -84,6 +86,11 @@ Route::get('/dashboard/usuaris/desactivate/{id}',[UsuarisController::class,'desa
 Route::get('/dashboard/usuaris/rolSudo/{id}',[UsuarisController::class,'rolSudo'])->middleware(['auth'])->middleware(['roluser']);
 Route::get('/dashboard/usuaris/rolNoSudo/{id}',[UsuarisController::class,'rolNoSudo'])->middleware(['auth'])->middleware(['roluser']);
 Route::get('/dashboard/usuaris/delete/{id}',[UsuarisController::class,'delete'])->middleware(['auth'])->middleware(['roluser']);
+
+// Personas pago
+Route::get('/dashboard/personaspago',[PersonasPagoController::class,'index'])->middleware(['auth']);
+Route::get('/dashboard/personapago/delete/{id}',[PersonasPagoController::class,'delete'])->middleware(['auth']);
+
 
 // Denegacion /dashboard/usuaris
 Route::get('/errorRolUser', ['as' => 'errorRolUser', function() {

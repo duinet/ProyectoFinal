@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Pagaments;
+use App\Models\PersonesPagament;
 
 class PlantillaController extends Controller
 {
@@ -34,5 +35,11 @@ class PlantillaController extends Controller
         $categories = Categories::all();
         $pagament = Pagaments::Find($id);
         return view('pagos.pago', compact('categories', 'pagament'));
+    }
+    public function personapago(Request $request){
+        $personapago = new PersonesPagament();
+        $personapago->descripcio=$request->input('descripcioPersona');
+        $personapago->save();
+        return redirect('/');
     }
 }

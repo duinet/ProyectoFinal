@@ -98,6 +98,12 @@
                                     <p>Pagaments</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="/dashboard/personaspago" class="nav-link">
+                                    <i class="fas fa-users mr-3 ml-2"></i>
+                                    <p>Persones Pagaments</p>
+                                </a>
+                            </li>
                             @if(auth()->user()->rol == 1)
                                 <li class="nav-item">
                                     <a href="/dashboard/usuaris" class="nav-link">
