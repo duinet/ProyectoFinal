@@ -36,6 +36,7 @@ class PlantillaController extends Controller
         $pagament = Pagaments::Find($id);
         return view('pagos.pago', compact('categories', 'pagament'));
     }
+    
     public function personapago(Request $request){
         $personapago = new PersonesPagament();
         $personapago->descripcio=$request->input('descripcioPersona');
